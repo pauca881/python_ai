@@ -1,0 +1,3 @@
+Juan,matematicas:7.0,ingles:8.0,ciencias:7.8
+Ana,matematicas:9.2,ingles:8.8,ciencias:9.1
+Oscar,matematicas:7.5,ingles:8.5,ciencias:9.0
