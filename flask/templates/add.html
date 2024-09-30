@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Page</title>
+</head>
+<body>
+<h3>Añade tu tarea</h3>
+<ul>
+    {% for task in tasks %}
+    <li>{{ task }} <form action="/delete/{{ loop.index0 }}" method="POST" style="display:inline;">
+        <input type="submit" value="Eliminar">
+    </form></li>
+    {% endfor %}
+</ul>
+<form action="/add" method="POST">
+    <label for="task">Nombre tarea:</label>
+    <input type="text" id="task" name="task">
+    <input type="submit" value="Añadir tarea">
+</form>
+
+<hr><a href="{{ url_for('inicio')}}">Volver al inicio</a>
+</body>
+</html>
