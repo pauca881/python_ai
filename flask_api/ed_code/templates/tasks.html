@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Tasks</h1>
+<form method="POST">
+    <div class="mb-3">
+        <label for="title" class="form-label">Task Title</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" name="description"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="user_id" class="form-label">Assigned User</label>
+        <select class="form-control" id="user_id" name="user_id" required>
+            {% for user in users %}
+            <option value="{{ user.id }}">{{ user.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="project_id" class="form-label">Project</label>
+        <select class="form-control" id="project_id" name="project_id" required>
+            {% for project in projects %}
+            <option value="{{ project.id }}">{{ project.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Task</button>
+</form>
+
+<h2>All Tasks</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>User</th>
+            <th>Project</th>
+            <th>Done</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.user_id }}</td>
+            <td>{{ task.project_id }}</td>
+            <td>{{ task.done }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

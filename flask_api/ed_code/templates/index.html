@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container text-center">
+    <h1 class="my-4">Welcome to Flask Project Management</h1>
+    <p class="lead">Manage your users, projects, and tasks efficiently</p>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Users</h5>
+                    <p class="card-text">Create and manage users for your projects.</p>
+                    <a href="{{ url_for('users') }}" class="btn btn-primary">Manage Users</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Projects</h5>
+                    <p class="card-text">Create and manage your projects.</p>
+                    <a href="{{ url_for('projects') }}" class="btn btn-primary">Manage Projects</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Tasks</h5>
+                    <p class="card-text">Assign tasks to users and projects.</p>
+                    <a href="{{ url_for('tasks') }}" class="btn btn-primary">Manage Tasks</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
