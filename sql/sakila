@@ -15,4 +15,4 @@ ORDER BY
 
 -- Ejercicio 2
 
-SELECT count(*)
+SELECT count(*);
