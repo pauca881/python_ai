@@ -1,0 +1,18 @@
+-- Ejercicio 1
+
+SELECT 
+    f.title AS 'Título de la película',
+    f.description AS 'Descripción',
+    c.name AS 'Categoría'
+FROM 
+    film f
+JOIN 
+    film_category fc ON f.film_id = fc.film_id
+JOIN 
+    category c ON fc.category_id = c.category_id
+ORDER BY 
+    c.name ASC;
+
+-- Ejercicio 2
+
+SELECT count(*)
