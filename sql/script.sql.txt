@@ -1,0 +1,71 @@
+DROP TABLE IF EXISTS tienda;
+CREATE TABLE tienda
+
+--
+
+CREATE TABLE fabricantes (
+    id_fabricante INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL
+);
+
+DROP TABLE fabricantes
+
+--
+
+CREATE TABLE articulos (
+    id_articulo INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL,
+    id_fabricante INT,
+    FOREIGN KEY (id_fabricante) REFERENCES fabricantes(id_fabricante)
+);
+
+--
+--Vuelvo a crear fabricantes
+
+CREATE TABLE fabricantes (
+    id_fabricante INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL
+);
+
+id_fabricante -> identificador único ( primarykey )
+nombre -> nombre del fabricante
+
+--
+
+id_articulo -> identificador único ( primarykey )
+nombre -> nombre del articulo
+precio -> precio articulo
+id_fabricante -> identificador del fabricante ( foreignkey )
+
+-- Añadir autoincremental
+--Elimino tabla y la vuelvo añadir modificando la linea del ID:
+
+CREATE TABLE articulos (
+    id_articulo INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL,
+    id_fabricante INT,
+    FOREIGN KEY (id_fabricante) REFERENCES fabricantes(id_fabricante)
+);
+
+--
+
+INSERT INTO articulos (nombre, precio, id_fabricante) VALUES
+('Laptop HP Pavilion', 799.99, 1),
+('Laptop DELL Inspiron', 699.99, 2),
+('Smartphone SAMSUNG Galaxy S21', 999.99, 3),
+('Impresora HP LaserJet', 199.99, 1),
+('Monitor DELL UltraSharp', 299.99, 2),
+('Televisor SAMSUNG QLED', 1499.99, 3);
+
+--
+
+SELECT * FROM fabricantes;
+SELECT 
+    nombre, 
+    precio, 
+    ROUND(precio * 0.93, 2) AS precio_en_euros
+FROM articulos;
+
+	
